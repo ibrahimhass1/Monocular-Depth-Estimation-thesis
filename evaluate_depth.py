@@ -28,6 +28,9 @@ TRANS_SCALE_FACTOR = 5.4
 def compute_errors(gt, pred):
     """Computation of error metrics between predicted and ground truth depths
     """
+    gt = np.array(gt, dtype=np.float32)
+    pred = np.array(pred, dtype=np.float32)
+
     thresh = np.maximum((gt / pred), (pred / gt))
     a1 = (thresh < 1.25     ).mean()
     a2 = (thresh < 1.25 ** 2).mean()
@@ -76,7 +79,7 @@ def evaluate(opt):
         encoder_path = os.path.join(opt.load_weights_folder, "encoder.pth")
         decoder_path = os.path.join(opt.load_weights_folder, "depth.pth")
 
-        encoder_dict = torch.load(encoder_path)
+        encoder_dict = torch.load(encoder_path, map_location=torch.device('cpu'))
 
         dataset = datasets.KITTIRAWDataset(opt.data_path, filenames,
                                            encoder_dict['height'], encoder_dict['width'],
@@ -88,11 +91,13 @@ def evaluate(opt):
 
         model_dict = encoder.state_dict()
         encoder.load_state_dict({k: v for k, v in encoder_dict.items() if k in model_dict})
-        depth_decoder.load_state_dict(torch.load(decoder_path))
+        depth_decoder.load_state_dict(torch.load(decoder_path, map_location=torch.device('cpu')))
 
-        encoder.cuda()
+        device = torch.device("cpu")
+
+        encoder.to(device)
         encoder.eval()
-        depth_decoder.cuda()
+        depth_decoder.to(device)
         depth_decoder.eval()
 
         pred_disps = []
@@ -101,8 +106,8 @@ def evaluate(opt):
             encoder_dict['width'], encoder_dict['height']))
 
         with torch.no_grad():
-            for data in dataloader:
-                input_color = data[("color", 0, 0)].cuda()
+            for idx,data in enumerate(dataloader):
+                input_color = data[("color", 0, 0)].to(device)
 
                 if opt.post_process:
                     # Post-processed results require each image to have two forward passes
@@ -118,6 +123,8 @@ def evaluate(opt):
                     pred_disp = batch_post_process_disparity(pred_disp[:N], pred_disp[N:, :, ::-1])
 
                 pred_disps.append(pred_disp)
+
+                print(idx)
 
         pred_disps = np.concatenate(pred_disps)
 
@@ -154,13 +161,14 @@ def evaluate(opt):
             depth = np.clip(depth, 0, 80)
             depth = np.uint16(depth * 256)
             save_path = os.path.join(save_dir, "{:010d}.png".format(idx))
-            cv2.imwrite(save_path, depth)
+            plt.imsave(save_path, depth, cmap='viridis')
+            # cv2.imwrite(save_path, depth)
 
         print("-> No ground truth is available for the KITTI benchmark, so not evaluating. Done.")
         quit()
 
     gt_path = os.path.join(splits_dir, opt.eval_split, "gt_depths.npz")
-    gt_depths = np.load(gt_path, fix_imports=True, encoding='latin1')["data"]
+    gt_depths = np.load(gt_path, fix_imports=True, encoding='latin1',allow_pickle=True)["data"]
 
     print("-> Evaluating")
         
@@ -195,6 +203,13 @@ def evaluate(opt):
 
         else:
             mask = gt_depth > 0
+
+        # fig, (ax1,ax2) = plt.subplots(1, 2)
+        # print(f"pred max: {pred_disp.max()}, pred min: {pred_disp.min()}")
+        # print(f"pred max: {gt_depth.max()}, pred min: {gt_depth.min()}")
+        # ax1.imshow(pred_disp)
+        # ax2.imshow(gt_depth)
+        # plt.show()
 
         pred_depth = pred_depth[mask]
         gt_depth = gt_depth[mask]
