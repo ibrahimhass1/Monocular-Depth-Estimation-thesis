@@ -1,0 +1,4 @@
+Kite_training/cloudy
+Kite_training/sunny
+Kite_training/sunset
+Kite_training/foggy
