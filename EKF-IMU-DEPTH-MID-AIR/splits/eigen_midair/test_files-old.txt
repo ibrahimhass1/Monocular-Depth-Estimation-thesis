@@ -1,0 +1,3 @@
+Kite_test/cloudy
+Kite_test/sunny
+Kite_test/sunset
