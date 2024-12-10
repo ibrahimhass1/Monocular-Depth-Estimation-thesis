@@ -1,0 +1,255 @@
+=========================
+processing seq 2011_09_26_drive_0096
+warning: raw_time[84] and [85] failed for drift check (tdiff: 0.1299517370061949)
+warning: raw_time[92] and [93] failed for drift check (tdiff: -0.05003182099608239)
+warning: raw_time[1589] and [1590] failed for drift check (tdiff: 0.0703104650019668)
+warning: imu_gap: 10 for raw_time[2949] and [2958]
+warning: raw_time[2958] and [2959] failed for drift check (tdiff: 0.06998181200469844)
+warning: raw_time[2990] and [2991] failed for drift check (tdiff: 0.07001299800322158)
+warning: raw_time[3099] and [3100] failed for drift check (tdiff: 0.06995662000554148)
+warning: raw_time[3114] and [3115] failed for drift check (tdiff: 0.1300538210052764)
+warning: raw_time[3122] and [3123] failed for drift check (tdiff: -0.04977617200347595)
+warning: raw_time[3150] and [3151] failed for drift check (tdiff: 0.06999370799894677)
+warning: raw_time[3252] and [3253] failed for drift check (tdiff: 0.06986735299869906)
+warning: raw_time[3258] and [3259] failed for drift check (tdiff: -0.049973367000347935)
+warning: raw_time[3304] and [3305] failed for drift check (tdiff: 0.07002526600263081)
+warning: raw_time[3306] and [3307] failed for drift check (tdiff: -0.05010987599962391)
+warning: raw_time[3477] and [3478] failed for drift check (tdiff: 0.06996526900184108)
+warning: raw_time[3686] and [3687] failed for drift check (tdiff: 0.06997822699486278)
+warning: raw_time[3689] and [3690] failed for drift check (tdiff: -0.050019558002531994)
+warning: raw_time[3709] and [3710] failed for drift check (tdiff: 0.07003521099977661)
+warning: raw_time[3711] and [3712] failed for drift check (tdiff: -0.04984736099868314)
+warning: raw_time[3739] and [3740] failed for drift check (tdiff: 0.06997950599907199)
+warning: raw_time[4344] and [4345] failed for drift check (tdiff: -0.049941973004024476)
+warning: raw_time[4485] and [4486] failed for drift check (tdiff: 0.07012098600534955)
+warning: raw_time[4490] and [4491] failed for drift check (tdiff: -0.04998779200104764)
+warning: imu_gap: 9 for raw_time[4500] and [4508]
+warning: raw_time[4508] and [4509] failed for drift check (tdiff: 0.06999339799949666)
+warning: raw_time[4562] and [4563] failed for drift check (tdiff: 0.06982901199808111)
+warning: raw_time[4645] and [4646] failed for drift check (tdiff: -0.05001396399893565)
+warning: raw_time[4655] and [4656] failed for drift check (tdiff: -0.04982305500016082)
+warning: raw_time[4773] and [4774] failed for drift check (tdiff: 0.0698770590024651)
+warning: raw_time[4780] and [4781] failed for drift check (tdiff: -0.04996521700377343)
+warning: raw_time[4825] and [4826] failed for drift check (tdiff: 0.06988813799398486)
+warning: raw_time[4833] and [4834] failed for drift check (tdiff: 0.0699773410015041)
+warning: raw_time[4837] and [4838] failed for drift check (tdiff: -0.05006280599627644)
+-------------------------
+total number of items: 474
+summarization of imu nums between two images:
+-> nan: 48
+-> 11: 283
+-> 12: 143
+=========================
+processing seq 2011_09_26_drive_0113
+-------------------------
+total number of items: 86
+summarization of imu nums between two images:
+-> 11: 57
+-> 12: 29
+=========================
+processing seq 2011_09_26_drive_0101
+warning: raw_time[999] and [1000] failed for drift check (tdiff: 0.0699301079948782)
+warning: raw_time[1003] and [1004] failed for drift check (tdiff: -0.04994212699966738)
+warning: raw_time[5536] and [5537] failed for drift check (tdiff: 0.07013248500152258)
+warning: raw_time[5537] and [5538] failed for drift check (tdiff: -0.050128363000112586)
+warning: raw_time[6535] and [6536] failed for drift check (tdiff: 0.0702437310028472)
+warning: raw_time[7154] and [7155] failed for drift check (tdiff: 0.07004741600394482)
+warning: raw_time[7158] and [7159] failed for drift check (tdiff: -0.04997779299446847)
+warning: raw_time[7330] and [7331] failed for drift check (tdiff: 0.06998817199928453)
+warning: raw_time[7336] and [7337] failed for drift check (tdiff: -0.05016139699728228)
+warning: raw_time[8857] and [8858] failed for drift check (tdiff: 0.07003987999632955)
+warning: raw_time[8864] and [8865] failed for drift check (tdiff: -0.050029730999085587)
+-------------------------
+total number of items: 935
+summarization of imu nums between two images:
+-> nan: 15
+-> 11: 613
+-> 12: 307
+=========================
+processing seq 2011_09_26_drive_0104
+warning: raw_time[170] and [171] failed for drift check (tdiff: 0.06991652699798578)
+warning: raw_time[173] and [174] failed for drift check (tdiff: -0.050001084004179575)
+warning: raw_time[193] and [194] failed for drift check (tdiff: 0.13013769200188108)
+warning: raw_time[200] and [201] failed for drift check (tdiff: -0.04999946400494082)
+warning: raw_time[507] and [508] failed for drift check (tdiff: -0.05000826900504762)
+warning: raw_time[688] and [689] failed for drift check (tdiff: 0.06999380299384939)
+warning: raw_time[841] and [842] failed for drift check (tdiff: 0.07003757499478525)
+warning: raw_time[845] and [846] failed for drift check (tdiff: -0.05007297999691218)
+warning: raw_time[996] and [997] failed for drift check (tdiff: 0.0701843189963256)
+warning: raw_time[1002] and [1003] failed for drift check (tdiff: -0.04987043800065294)
+warning: raw_time[1102] and [1103] failed for drift check (tdiff: 0.06994076000410132)
+warning: raw_time[1107] and [1108] failed for drift check (tdiff: -0.049659553995297756)
+warning: raw_time[1215] and [1216] failed for drift check (tdiff: 0.06997713699820451)
+warning: raw_time[1239] and [1240] failed for drift check (tdiff: 0.07002743500197539)
+warning: raw_time[1241] and [1242] failed for drift check (tdiff: -0.04980274500121595)
+warning: raw_time[1289] and [1290] failed for drift check (tdiff: 0.07000289099960355)
+warning: raw_time[1294] and [1295] failed for drift check (tdiff: -0.050237230003403965)
+warning: raw_time[1368] and [1369] failed for drift check (tdiff: 0.07001891399704618)
+warning: raw_time[1539] and [1540] failed for drift check (tdiff: 0.07000775399501435)
+warning: raw_time[1542] and [1543] failed for drift check (tdiff: -0.05000103399652289)
+warning: raw_time[1734] and [1735] failed for drift check (tdiff: 0.07004418499855092)
+warning: raw_time[1735] and [1736] failed for drift check (tdiff: 0.06997866599704139)
+warning: raw_time[1749] and [1750] failed for drift check (tdiff: -0.049842207998153754)
+warning: imu_gap: 9 for raw_time[1844] and [1852]
+warning: raw_time[1852] and [1853] failed for drift check (tdiff: 0.06986607399448985)
+warning: raw_time[1863] and [1864] failed for drift check (tdiff: 0.069994712001062)
+warning: imu_gap: 10 for raw_time[1917] and [1926]
+warning: raw_time[1926] and [1927] failed for drift check (tdiff: 0.13002170200343244)
+warning: raw_time[1930] and [1931] failed for drift check (tdiff: -0.04998740700102644)
+warning: raw_time[1967] and [1968] failed for drift check (tdiff: 0.06995263299904764)
+warning: raw_time[1981] and [1982] failed for drift check (tdiff: 0.06999100599932717)
+warning: raw_time[1985] and [1986] failed for drift check (tdiff: -0.049998565002169926)
+warning: raw_time[2116] and [2117] failed for drift check (tdiff: 0.0700793150026584)
+warning: raw_time[2118] and [2119] failed for drift check (tdiff: -0.049970681000559125)
+warning: raw_time[2180] and [2181] failed for drift check (tdiff: 0.06998492000275292)
+warning: raw_time[2186] and [2187] failed for drift check (tdiff: -0.049938522999582347)
+warning: raw_time[2243] and [2244] failed for drift check (tdiff: 0.07028248400456505)
+warning: raw_time[2249] and [2250] failed for drift check (tdiff: -0.0497780049990979)
+warning: raw_time[2284] and [2285] failed for drift check (tdiff: 0.0699923390056938)
+warning: raw_time[2290] and [2291] failed for drift check (tdiff: -0.04999061699345475)
+warning: raw_time[2387] and [2388] failed for drift check (tdiff: 0.07003573499969207)
+warning: raw_time[2397] and [2398] failed for drift check (tdiff: 0.07003748699935386)
+warning: raw_time[2413] and [2414] failed for drift check (tdiff: 0.13005336999776773)
+warning: raw_time[2420] and [2421] failed for drift check (tdiff: -0.050108003000786994)
+warning: raw_time[2495] and [2496] failed for drift check (tdiff: -0.04999780299840495)
+warning: imu_gap: 10 for raw_time[2692] and [2701]
+warning: raw_time[2701] and [2702] failed for drift check (tdiff: 0.06986427600349998)
+warning: raw_time[2791] and [2792] failed for drift check (tdiff: 0.0700131039993721)
+warning: raw_time[2794] and [2795] failed for drift check (tdiff: -0.050203496000904124)
+warning: imu_gap: 10 for raw_time[2807] and [2816]
+warning: raw_time[3052] and [3053] failed for drift check (tdiff: -0.05005525500018848)
+-------------------------
+total number of items: 311
+summarization of imu nums between two images:
+-> nan: 72
+-> 11: 160
+-> 12: 79
+=========================
+processing seq 2011_09_26_drive_0106
+warning: raw_time[1000] and [1001] failed for drift check (tdiff: 0.07001063699863153)
+warning: raw_time[1072] and [1073] failed for drift check (tdiff: 0.06988918699789792)
+warning: raw_time[1077] and [1078] failed for drift check (tdiff: -0.05000891099916771)
+-------------------------
+total number of items: 226
+summarization of imu nums between two images:
+-> nan: 3
+-> 11: 144
+-> 12: 79
+=========================
+processing seq 2011_09_26_drive_0117
+warning: raw_time[498] and [499] failed for drift check (tdiff: 0.06995887700031744)
+warning: raw_time[503] and [504] failed for drift check (tdiff: -0.0500396730058128)
+warning: imu_gap: 9 for raw_time[1456] and [1464]
+warning: raw_time[1843] and [1844] failed for drift check (tdiff: 0.06998932699934812)
+warning: raw_time[1845] and [1846] failed for drift check (tdiff: -0.050005221004539635)
+warning: raw_time[2862] and [2863] failed for drift check (tdiff: 0.06995723999716574)
+warning: raw_time[3326] and [3327] failed for drift check (tdiff: 0.06999725499917986)
+warning: raw_time[3683] and [3684] failed for drift check (tdiff: 0.07002482400275767)
+warning: raw_time[3689] and [3690] failed for drift check (tdiff: -0.05003043499891646)
+warning: raw_time[3743] and [3744] failed for drift check (tdiff: 0.07003320299554616)
+warning: raw_time[3749] and [3750] failed for drift check (tdiff: -0.05000355400261469)
+warning: raw_time[3847] and [3848] failed for drift check (tdiff: 0.12997857000300428)
+warning: raw_time[3854] and [3855] failed for drift check (tdiff: -0.049987219004833605)
+warning: raw_time[3867] and [3868] failed for drift check (tdiff: 0.06994625800143695)
+warning: raw_time[4030] and [4031] failed for drift check (tdiff: -0.04993726399698062)
+warning: raw_time[4158] and [4159] failed for drift check (tdiff: 0.06985390499903588)
+warning: raw_time[4160] and [4161] failed for drift check (tdiff: -0.05009736100328155)
+warning: raw_time[4199] and [4200] failed for drift check (tdiff: 0.07012230299733346)
+warning: raw_time[4202] and [4203] failed for drift check (tdiff: -0.050190246001875494)
+warning: imu_gap: 9 for raw_time[4372] and [4380]
+warning: raw_time[4386] and [4387] failed for drift check (tdiff: -0.049956124006712344)
+warning: raw_time[4480] and [4481] failed for drift check (tdiff: 0.07008353199489648)
+warning: raw_time[4486] and [4487] failed for drift check (tdiff: -0.04998500300280284)
+warning: raw_time[4511] and [4512] failed for drift check (tdiff: 0.0699502669958747)
+warning: raw_time[4522] and [4523] failed for drift check (tdiff: 0.07002206100150943)
+warning: raw_time[4536] and [4537] failed for drift check (tdiff: -0.049966383005084936)
+warning: raw_time[4631] and [4632] failed for drift check (tdiff: -0.050023430994770024)
+warning: raw_time[4936] and [4937] failed for drift check (tdiff: 0.07005429600394564)
+warning: raw_time[4987] and [4988] failed for drift check (tdiff: 0.0699405960040167)
+warning: raw_time[4992] and [4993] failed for drift check (tdiff: -0.05002024900022661)
+warning: imu_gap: 10 for raw_time[5072] and [5081]
+warning: raw_time[5085] and [5086] failed for drift check (tdiff: 0.07002850300341379)
+warning: raw_time[5087] and [5088] failed for drift check (tdiff: -0.050038403998769354)
+warning: raw_time[5107] and [5108] failed for drift check (tdiff: 0.06994023099832702)
+warning: raw_time[5111] and [5112] failed for drift check (tdiff: -0.05001018400071189)
+warning: raw_time[5133] and [5134] failed for drift check (tdiff: 0.07000859799882164)
+warning: raw_time[5137] and [5138] failed for drift check (tdiff: -0.04998781299946131)
+warning: raw_time[5277] and [5278] failed for drift check (tdiff: 0.07006166000064695)
+warning: raw_time[5313] and [5314] failed for drift check (tdiff: 0.06999138299579499)
+warning: raw_time[5424] and [5425] failed for drift check (tdiff: 0.0700675210027839)
+warning: raw_time[5428] and [5429] failed for drift check (tdiff: -0.050006077995931264)
+warning: raw_time[5556] and [5557] failed for drift check (tdiff: 0.06978649999655318)
+warning: imu_gap: 10 for raw_time[5558] and [5567]
+warning: raw_time[5695] and [5696] failed for drift check (tdiff: 0.07019137099996442)
+warning: raw_time[5698] and [5699] failed for drift check (tdiff: -0.050014284999633674)
+warning: raw_time[5716] and [5717] failed for drift check (tdiff: 0.06989045500085922)
+warning: raw_time[5722] and [5723] failed for drift check (tdiff: -0.04998015499586472)
+warning: raw_time[5839] and [5840] failed for drift check (tdiff: 0.07005782199848909)
+warning: raw_time[5843] and [5844] failed for drift check (tdiff: -0.050251123000634834)
+warning: imu_gap: 9 for raw_time[5877] and [5885]
+warning: raw_time[5896] and [5897] failed for drift check (tdiff: -0.0499430179988849)
+warning: raw_time[5922] and [5923] failed for drift check (tdiff: 0.07002292000106536)
+warning: raw_time[5924] and [5925] failed for drift check (tdiff: -0.05000903399923118)
+warning: raw_time[6017] and [6018] failed for drift check (tdiff: 0.06996732099651126)
+warning: raw_time[6020] and [6021] failed for drift check (tdiff: -0.0500568290008232)
+warning: raw_time[6058] and [6059] failed for drift check (tdiff: 0.07006610999815166)
+warning: raw_time[6061] and [6062] failed for drift check (tdiff: -0.050040813999657985)
+warning: raw_time[6151] and [6152] failed for drift check (tdiff: 0.0699804280011449)
+warning: raw_time[6155] and [6156] failed for drift check (tdiff: -0.049879621001309715)
+warning: raw_time[6168] and [6169] failed for drift check (tdiff: -0.050029576996166725)
+warning: raw_time[6178] and [6179] failed for drift check (tdiff: 0.0700451590018929)
+warning: raw_time[6183] and [6184] failed for drift check (tdiff: -0.04998757500288775)
+warning: raw_time[6423] and [6424] failed for drift check (tdiff: 0.06990560799749801)
+-------------------------
+total number of items: 659
+summarization of imu nums between two images:
+-> nan: 124
+-> 11: 352
+-> 12: 183
+=========================
+processing seq 2011_09_28_drive_0001
+-------------------------
+total number of items: 105
+summarization of imu nums between two images:
+-> 11: 67
+-> 12: 38
+=========================
+processing seq 2011_09_28_drive_0002
+-------------------------
+total number of items: 375
+summarization of imu nums between two images:
+-> 11: 237
+-> 12: 138
+=========================
+processing seq 2011_09_29_drive_0004
+warning: raw_time[2757] and [2758] failed for drift check (tdiff: 0.06997565100027714)
+warning: raw_time[2761] and [2762] failed for drift check (tdiff: -0.049945808001211844)
+-------------------------
+total number of items: 338
+summarization of imu nums between two images:
+-> nan: 2
+-> 11: 202
+-> 12: 134
+=========================
+processing seq 2011_09_29_drive_0071
+warning: raw_time[3124] and [3125] failed for drift check (tdiff: -0.04997060599998804)
+warning: raw_time[6154] and [6155] failed for drift check (tdiff: 0.06999047700082883)
+warning: raw_time[6155] and [6156] failed for drift check (tdiff: -0.04985926800145535)
+warning: raw_time[6662] and [6663] failed for drift check (tdiff: -0.05027530699589988)
+-------------------------
+total number of items: 1058
+summarization of imu nums between two images:
+-> nan: 8
+-> 11: 643
+-> 12: 407
+=========================
+processing seq 2011_09_29_drive_0026
+warning: imu_gap: 10 for raw_time[1189] and [1198]
+warning: raw_time[1353] and [1354] failed for drift check (tdiff: 0.07001936199958436)
+warning: raw_time[1358] and [1359] failed for drift check (tdiff: -0.0499724809997133)
+-------------------------
+total number of items: 157
+summarization of imu nums between two images:
+-> nan: 18
+-> 11: 84
+-> 12: 55
