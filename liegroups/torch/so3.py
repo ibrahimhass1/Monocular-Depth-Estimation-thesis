@@ -242,8 +242,8 @@ def J_left_SO3_inv_b(phi):
 class SO3:
     #  tolerance criterion
     TOL = 1e-8
-    Id = torch.eye(3).cuda().float()
-    dId = torch.eye(3).cuda().double()
+    Id = torch.eye(3).float()
+    dId = torch.eye(3).double()
 
     @classmethod
     def exp(cls, phi):

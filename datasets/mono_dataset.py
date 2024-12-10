@@ -19,6 +19,8 @@ import torch.utils.data as data
 from torchvision import transforms
 from liegroups.numpy import SO3 as SO3_np
 from collections import Counter
+import torchvision.transforms.functional as F
+
 
 
 def pil_loader(path):
@@ -117,7 +119,7 @@ class MonoDataset(data.Dataset):
         self.height = height
         self.width = width
         self.num_scales = num_scales
-        self.interp = Image.ANTIALIAS
+        self.interp = Image.LANCZOS
 
         self.frame_idxs = frame_idxs
         self.use_imu = use_imu
@@ -327,8 +329,25 @@ class MonoDataset(data.Dataset):
             inputs[("inv_K", scale)] = torch.from_numpy(inv_K)
 
         if do_color_aug:
-            color_aug = transforms.ColorJitter.get_params(
-                self.brightness, self.contrast, self.saturation, self.hue)
+
+            order, brightness_factor, contrast_factor, saturation_factor, hue_factor = transforms.ColorJitter.get_params(self.brightness, self.contrast, self.saturation, self.hue)
+    
+            # Define a function that applies the transformations in the specified order
+            def color_aug(img):
+                # Create a list of transformations and their corresponding functions
+                transformations = [
+                    (0, lambda x: F.adjust_brightness(x, brightness_factor)),
+                    (1, lambda x: F.adjust_contrast(x, contrast_factor)),
+                    (2, lambda x: F.adjust_saturation(x, saturation_factor)),
+                    (3, lambda x: F.adjust_hue(x, hue_factor)),
+                ]
+                
+                # Apply the transformations in the order specified by `order`
+                for idx in order.tolist():  # Convert the tensor to a list for iteration
+                    img = transformations[idx][1](img)  # Apply the corresponding transformation
+                    
+                return img
+
         else:
             color_aug = (lambda x: x)
 

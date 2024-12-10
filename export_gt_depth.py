@@ -28,11 +28,12 @@ def export_gt_depths_kitti():
                         type=str,
                         help='which split to export gt from',
                         required=True,
-                        choices=["eigen", "eigen_benchmark"])
+                        choices=["eigen", "eigen_benchmark", "eigen_scenario_city", "eigen_scenario_residential", "eigen_scenario_road"])
     opt = parser.parse_args()
 
     split_folder = os.path.join(os.path.dirname(__file__), "splits", opt.split)
     lines = readlines(os.path.join(split_folder, "test_files.txt"))
+    print(lines)
 
     print("Exporting ground truth depths for {}".format(opt.split))
 
@@ -42,7 +43,7 @@ def export_gt_depths_kitti():
         folder, frame_id, _ = line.split()
         frame_id = int(frame_id)
 
-        if opt.split == "eigen":
+        if opt.split == "eigen" or opt.split == "eigen_scenario_city" or opt.split == "eigen_scenario_residential" or opt.split == "eigen_scenario_road":
             calib_dir = os.path.join(opt.data_path, folder.split("/")[0])
             velo_filename = os.path.join(opt.data_path, folder,
                                          "velodyne_points/data", "{:010d}.bin".format(frame_id))
@@ -58,7 +59,7 @@ def export_gt_depths_kitti():
 
     print("Saving to {}".format(opt.split))
 
-    np.savez_compressed(output_path, data=np.array(gt_depths))
+    np.savez_compressed(output_path, data=np.array(gt_depths,dtype=np.ndarray))
 
 
 if __name__ == "__main__":

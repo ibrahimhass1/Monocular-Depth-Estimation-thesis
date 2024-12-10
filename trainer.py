@@ -5,7 +5,7 @@
 # available in the LICENSE file.
 
 from __future__ import absolute_import, division, print_function
-
+from tensorboardX import SummaryWriter
 import numpy as np
 import time
 import pdb
@@ -15,7 +15,6 @@ import torch
 import torch.nn.functional as F
 import torch.optim as optim
 from torch.utils.data import DataLoader
-from tensorboardX import SummaryWriter
 
 import json
 
@@ -27,7 +26,6 @@ import datasets
 import networks
 from ekf import EKFModel
 from ekf import proc_vis_covar
-from IPython import embed
 
 
 # torch.autograd.set_detect_anomaly(True)
@@ -79,6 +77,7 @@ class Trainer:
         self.parameters_to_train = []
 
         self.device = torch.device("cpu" if self.opt.no_cuda else "cuda")
+        # self.device = torch.device("cpu")
 
         self.num_scales = len(self.opt.scales)
         self.num_input_frames = len(self.opt.frame_ids)
@@ -101,6 +100,8 @@ class Trainer:
         self.use_imu = self.use_imu_warp or self.use_imu_consistency or self.opt.use_ekf or self.use_imu_l2
         self.compute_imu_warp = self.use_imu_warp or self.use_imu_consistency or self.opt.use_ekf 
         self.ekf_enabled = False
+        self.opt.log_dir = self.opt.log_dir + "_use_imu_" + str(self.use_imu) +"_use_ekf_"+ str(self.opt.use_ekf)
+        self.log_path = os.path.join(self.opt.log_dir, self.opt.model_name)
 
         if self.opt.use_stereo:
             self.opt.frame_ids.append("s")
@@ -218,7 +219,7 @@ class Trainer:
         print("Training model named:\n  ", self.opt.model_name)
         print("Models and tensorboard events files are saved to:\n  ", self.opt.log_dir)
         print("Training is using:\n  ", self.device)
-
+        # self.opt.log_dir = f"{self.opt.log_dir}_use_ekf_{self.opt.use_ekf}"
         # data
         datasets_dict = {"kitti": datasets.KITTIRAWDataset,
                          "kitti_odom": datasets.KITTIOdomDataset}
@@ -348,6 +349,7 @@ class Trainer:
         print("=> lr_scheduler last_lr: {}".format(self.model_lr_scheduler.get_last_lr()))
 
         for batch_idx, inputs in enumerate(self.train_loader):
+            print(f"Batch {batch_idx}/{len(self.train_loader)}")
             before_op_time = time.time()
             
             outputs, losses = self.process_batch(inputs)
@@ -638,10 +640,10 @@ class Trainer:
         """
         self.set_eval()
         try:
-            inputs = self.val_iter.next()
+            inputs = inputs = next(self.val_iter)
         except StopIteration:
             self.val_iter = iter(self.val_loader)
-            inputs = self.val_iter.next()
+            inputs = next(self.val_iter)
 
         with torch.no_grad():
             outputs, losses = self.process_batch(inputs)
@@ -823,7 +825,7 @@ class Trainer:
                     imu_reprojection_losses *= mask
 
                 # add a loss pushing mask to 1 (using nn.BCELoss for stability)
-                weighting_loss = 0.2 * nn.BCELoss()(mask, torch.ones(mask.shape).cuda())
+                weighting_loss = 0.2 * nn.BCELoss()(mask, torch.ones(mask.shape, device=self.device))
                 loss += weighting_loss.mean()
 
             if self.opt.avg_reprojection:
@@ -842,7 +844,7 @@ class Trainer:
             if not self.opt.disable_automasking:
                 # add random numbers to break ties
                 identity_reprojection_loss += torch.randn(
-                    identity_reprojection_loss.shape).cuda() * 0.00001
+                    identity_reprojection_loss.shape,device = self.device) * 0.00001
 
                 combined = torch.cat((identity_reprojection_loss, reprojection_loss), dim=1)
                 if use_imu_warp:

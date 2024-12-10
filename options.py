@@ -5,7 +5,7 @@
 # available in the LICENSE file.
 
 from __future__ import absolute_import, division, print_function
-
+from datetime import datetime
 import os
 import argparse
 
@@ -20,17 +20,17 @@ class MonodepthOptions:
         self.parser.add_argument("--data_path",
                                  type=str,
                                  help="path to the training data",
-                                 default=os.path.join("data", "kitti", "kitti_raw"))
+                                 default=os.path.join("kitti"))
         self.parser.add_argument("--log_dir",
                                  type=str,
                                  help="log directory",
-                                 default=os.path.join(os.path.expanduser("~"), "tmp"))
+                                 default=os.path.join("tmp_training"))
 
         # TRAINING options
         self.parser.add_argument("--model_name",
                                  type=str,
                                  help="the name of the folder to save the model in",
-                                 default="dynadepth")
+                                 default=f"dynadepth_{datetime.now().strftime('%Y%m%d_%H%M%S')}")
         self.parser.add_argument("--split",
                                  type=str,
                                  help="which training split to use",
@@ -205,7 +205,7 @@ class MonodepthOptions:
         self.parser.add_argument("--first_save_epoch",
                                  type=int,
                                  help="the first epoch to save models",
-                                 default=10)
+                                 default=28)
         self.parser.add_argument("--predict_velo_residue",
                                  help="if set predict velo residual based on predicted translation / dt",
                                  action="store_true")
@@ -278,7 +278,7 @@ class MonodepthOptions:
         self.parser.add_argument("--num_workers",
                                  type=int,
                                  help="number of dataloader workers",
-                                 default=12)
+                                 default=0)
 
         # LOADING options
         self.parser.add_argument("--load_weights_folder",
@@ -318,7 +318,7 @@ class MonodepthOptions:
                                  type=str,
                                  default="eigen",
                                  choices=[
-                                    "eigen", "eigen_benchmark", "benchmark", "odom_9", "odom_10"],
+                                    "eigen", "eigen_benchmark", "benchmark", "odom_9", "odom_10", 'benchmark', "eigen_scenario_city", "eigen_scenario_residential", "eigen_scenario_road"],
                                  help="which split to run eval on")
         self.parser.add_argument("--save_pred_disps",
                                  help="if set saves predicted disparities",

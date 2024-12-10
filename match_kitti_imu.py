@@ -18,11 +18,15 @@ def check_imu():
         with open("kitti_extract/{}.txt".format(mode), 'r') as f:
             for line in f.readlines():
                 if line.strip() not in seqs:
-                    seqs.append(line.strip()) # e.g. "2011_09_30_drive_0028"
+                    split_datum = line.strip("_drive_")
+                    if split_datum not in ["2011_09_30","2011_10_03","2011_09_28","2011_09_29"]:
+                        seqs.append(line.strip()) # e.g. "2011_09_30_drive_0028"
     with open("test_scenes.txt", 'r') as f:
             for line in f.readlines():
                 if line.strip() not in seqs:
-                    seqs.append(line.strip()) # e.g. "2011_09_30_drive_0028"
+                    split_datum = line.strip("_drive_")
+                    if split_datum not in ["2011_09_30","2011_10_03","2011_09_28","2011_09_29"]:
+                        seqs.append(line.strip()) # e.g. "2011_09_30_drive_0028"
                     
     for seq in seqs:
         msgs.append('=========================')
@@ -68,16 +72,21 @@ def match_imu():
     """
     msgs = []
     seqs = []
-    for mode in ["train", "val"]:
-        with open("kitti_extract/{}.txt".format(mode), 'r') as f:
+    for mode in ["train"]:
+        with open("{}.txt".format(mode), 'r') as f:
             for line in f.readlines():
-                if line.strip() not in seqs:
-                    seqs.append(line.strip()) # e.g. "2011_09_30_drive_0028"
-    with open("test_scenes.txt", 'r') as f:
-            for line in f.readlines():
-                if line.strip() not in seqs:
-                    seqs.append(line.strip()) # e.g. "2011_09_30_drive_0028"
-                    
+                drive = line.split("_extract")[0]
+                if drive not in seqs:
+                    seqs.append(drive)
+    # with open("test_scenes.txt", 'r') as f:
+    #         for line in f.readlines():
+    #             if split_datum not in ["2011_09_30","2011_10_03","2011_09_28","2011_09_29"]:
+    #                 drive = ((line.split(" ")[0]).split("/")[1]).split("_sync")[0]
+    #                 not_allowed = ["2011_09_26_drive_0096","2011_09_26_drive_0101","2011_09_26_drive_0104","2011_09_26_drive_0106","2011_09_26_drive_0113","2011_09_26_drive_0117"]
+    #                 if drive not in seqs and drive not in not_allowed:
+    #                     seqs.append(drive)    
+                  
+    print(seqs)    
     for seq in seqs:
         msgs.append('=========================')
         msgs.append('processing seq {}'.format(seq))
@@ -87,7 +96,7 @@ def match_imu():
         scene = "_".join(seq.split("_")[:3]) # "2011_09_30"
         
         raw_dir = "kitti_extract/{}/{}_extract".format(scene, seq)
-        sync_dir  = "kitti/kitti_raw/{}/{}_sync".format(scene, seq)
+        sync_dir  = "kitti_v1/{}/{}_sync".format(scene, seq)
 
         raw_oxt   = []
         sync_oxt  = []
